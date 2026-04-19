@@ -1,5 +1,3 @@
-function ajjgui:util/begin_widget
-
 function ajjgui:widget/scrollbutton/function
 
 function ajjgui:util/recover_item

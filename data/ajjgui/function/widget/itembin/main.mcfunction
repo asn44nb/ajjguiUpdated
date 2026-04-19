@@ -1,5 +1,3 @@
-function ajjgui:util/begin_widget
-
 function ajjgui:widget/itembin/function
 
 function ajjgui:util/recover_item

@@ -28,7 +28,7 @@ Benefits:
 * SNBT standard for quick and easy creation of advanced item-based GUIs.
 * Completely in-game workflow, with the entire datapack being a black box that the mapmaker can ignore.
 * Robust design, support for multiplayer, including personalized GUIs, and no interference with player inventories.
-* Complete documentation, in-game tutorial, and demos.
+* Complete documentation.
 * 4+ years of continuous maintenance, built with the most up-to-date practices, and powering prominent maps officially featured on Minecraft Realms.
 
 ## Installing
@@ -37,29 +37,27 @@ After this datapack has been added to the "datapacks" folder of a Minecraft worl
 
 | Function                                                       | Description                                           |
 |:---------------------------------------------------------------|:------------------------------------------------------|
-| ``/function ajjgui:__compile``                                 | Compiles GUI                                          |
-| ``/function ajjgui:__decompile``                               | Decompiles nearest GUI                                |
-| ``/function ajjgui:__help``                                    | Displays datapack command list                        |
-| ``/function ajjgui:__install``                                 | Installs datapack                                     |
-| ``/function ajjgui:__kit``                                     | Gives GUI design and compilation kit                  |
-| ``/function ajjgui:__license``                                 | Displays datapack license information                 |
-| ``/function ajjgui:__manual``                                  | Displays datapack manual link                         |
-| ``/function ajjgui:__open {player:<player_uuid>,id:<gui_id>}`` | Opens ported GUI                                      |
-| ``/function ajjgui:__openself {id:<gui_id>}``                  | Opens ported GUI of executing player                  |
-| ``/function ajjgui:__port {player:<player_uuid>,id:<gui_id>}`` | Ports nearest GUI                                     |
-| ``/function ajjgui:__portself {id:<gui_id>}``                  | Ports nearest GUI to executing player                 |
-| ``/function ajjgui:__reload``                                  | Reloads GUIs                                          |
-| ``/function ajjgui:__tutorial``                                | Displays GUI design and compilation tutorial          |
-| ``/function ajjgui:__uninstall``                               | Uninstalls datapack                                   |
-| ``/function ajjgui:__version``                                 | Displays datapack version                             |
-| ``/function ajjgui:__widget/``                                 | Gives GUI demo widgets                                |
-| ``/function ajjgui:_open {player:<player_uuid>,id:<gui_id>}``  | Runs ``/function ajjgui:__open`` without feedback     |
-| ``/function ajjgui:_openself {id:<gui_id>}``                   | Runs ``/function ajjgui:__openself`` without feedback |
-| ``/function ajjgui:_port {player:<player_uuid>,id:<gui_id>}``  | Runs ``/function ajjgui:__port`` without feedback     |
-| ``/function ajjgui:_portself {id:<gui_id>}``                   | Runs ``/function ajjgui:__portself`` without feedback |
-| ``/function ajjgui:_reload``                                   | Runs ``/function ajjgui:__reload`` without feedback   |
+| ``/function ajjgui:__help``                                         | Displays datapack command list                             |
+| ``/function ajjgui:__install``                                      | Installs datapack                                          |
+| ``/function ajjgui:__license``                                      | Displays datapack license information                      |
+| ``/function ajjgui:__open {player:<player_uuid>,id:<gui_id>}``      | Opens ported GUI (chest boat)                              |
+| ``/function ajjgui:__open_cart {player:<player_uuid>,id:<gui_id>}`` | Opens ported GUI (chest minecart)                          |
+| ``/function ajjgui:__openself {id:<gui_id>}``                       | Opens ported GUI of executing player (chest boat)          |
+| ``/function ajjgui:__openself_cart {id:<gui_id>}``                  | Opens ported GUI of executing player (chest minecart)      |
+| ``/function ajjgui:__port {player:<player_uuid>,id:<gui_id>}``      | Ports nearest GUI                                          |
+| ``/function ajjgui:__portself {id:<gui_id>}``                       | Ports nearest GUI to executing player                      |
+| ``/function ajjgui:__reload``                                       | Reloads GUIs                                               |
+| ``/function ajjgui:__uninstall``                                    | Uninstalls datapack                                        |
+| ``/function ajjgui:__version``                                      | Displays datapack version                                  |
+| ``/function ajjgui:_open {player:<player_uuid>,id:<gui_id>}``       | Runs ``/function ajjgui:__open`` without feedback          |
+| ``/function ajjgui:_open_cart {player:<player_uuid>,id:<gui_id>}``  | Runs ``/function ajjgui:__open_cart`` without feedback     |
+| ``/function ajjgui:_openself {id:<gui_id>}``                        | Runs ``/function ajjgui:__openself`` without feedback      |
+| ``/function ajjgui:_openself_cart {id:<gui_id>}``                   | Runs ``/function ajjgui:__openself_cart`` without feedback |
+| ``/function ajjgui:_port {player:<player_uuid>,id:<gui_id>}``       | Runs ``/function ajjgui:__port`` without feedback          |
+| ``/function ajjgui:_portself {id:<gui_id>}``                        | Runs ``/function ajjgui:__portself`` without feedback      |
+| ``/function ajjgui:_reload``                                        | Runs ``/function ajjgui:__reload`` without feedback        |
 
-The datapack can be installed by running ``/function ajjgui:__install`` at any location in the world, which generates a shulker box. This needs to be located in a loaded chunk and cannot be destroyed. The shulker box can be relocated by repeating the installation command elsewhere. Any updated versions of the datapack are automatically installed at the same location upon reloading the world. The datapack can be uninstalled using ``/function ajjgui:__uninstall``, which removes all data associated with it from the world and decompiles any existing GUIs.
+The datapack can be installed by running ``/function ajjgui:__install`` at any location in the world, which generates a shulker box. This needs to be located in a loaded chunk and cannot be destroyed. The shulker box can be relocated by repeating the installation command elsewhere. Any updated versions of the datapack are automatically installed at the same location upon reloading the world. The datapack can be uninstalled using ``/function ajjgui:__uninstall``, which removes all data associated with it from the world.
 
 ## Creating a GUI
 
@@ -76,7 +74,7 @@ There are 8 types of GUI widgets available:
 * [Itemslot](#itemslot)
 * [Scrollbutton](#scrollbutton)
 
-An in-game tutorial on how to create a GUI is available via ``/function ajjgui:__tutorial``. The tutorial provides the player with premade demo widgets to experiment with. Multiple examples are given, both here and in-game, to help provide a better understanding of their custom SNBT. The following section explains all the different types of widgets available and how they can be customized. Once obtained, these items can be placed inside shulker boxes, with each shulker box corresponding to a different GUI page. The shulker boxes can be arranged based on their page number and compiled to build a functional GUI in-game. This manual can be accessed with ``/function ajjgui:__manual``.
+The following section explains all the different types of widgets available and how they can be customized. Widget items use custom SNBT under ``minecraft:custom_data`` to define their behavior. Once created, these items can be placed directly into containers to build a functional GUI.
 
 ## List of GUI Widgets
 
@@ -84,7 +82,7 @@ An in-game tutorial on how to create a GUI is available via ``/function ajjgui:_
 > Some of the following commands are too long to fit in the chat box and need to be executed using a command block.
 
 > [!IMPORTANT]
-> For custom SNBT, it is important to check that the right data types are being used (e.g., ``{ajjgui:{exit:1b}}`` and not ``{ajjgui:{exit:1}}``), that values are within the specified range (e.g., ``{ajjgui:{exit:1b}}`` and not ``{ajjgui:{exit:2b}}``, where ``ajjgui.exit`` here can only be ``0b`` or ``1b``). The GUI compiler is only capable of initializing required SNBT with default values and does not correct errors. While there are cases where errors in custom SNBT, such as incorrect data types, may be internally resolved by the datapack at later stages, this behavior is inconsistent and must not be assumed.
+> For custom SNBT, it is important to check that the right data types are being used (e.g., ``{ajjgui:{exit:1b}}`` and not ``{ajjgui:{exit:1}}``), that values are within the specified range (e.g., ``{ajjgui:{exit:1b}}`` and not ``{ajjgui:{exit:2b}}``, where ``ajjgui.exit`` here can only be ``0b`` or ``1b``).
 
 > [!NOTE]
 > The ``ajjgui.command``, ``ajjgui.exit``, ``ajjgui.fixed``, ``ajjgui.lock``, ``ajjgui.page``, and ``ajjgui.relative`` SNBT are covered separately in later sections.
@@ -678,16 +676,13 @@ There is a marker entity with the scoreboard tag ``"ajjgui.gui_origin"`` for blo
 > If a GUI is not reloaded as specified above, the datapack assumes that a player is interacting indefinitely with it, causing other active GUIs to malfunction.
 
 > [!IMPORTANT]
-> The GUI compiler adds the ``ajjgui.meta`` SNBT to each widget. This must not be changed when modifying SNBT post-compilation.
+> The ``ajjgui.meta`` SNBT is added to each widget and must not be changed when modifying SNBT.
 
 > [!IMPORTANT]
 > This section explains how widgets can be modified after compilation, when required SNBT have already been initialized with default values. Creating widget SNBT from scratch or changing the ``ajjgui.widget`` SNBT is therefore not recommended.
 
 > [!IMPORTANT]
 > Widgets with the ``ajjgui.fixed`` SNBT set to ``1b`` are passed on to a new page only when it is loaded by clicking on a widget that has the ``ajjgui.page`` SNBT. Changing a page post-compilation therefore does not properly handle fixed widgets.
-
-> [!NOTE]
-> Decompiling a GUI resets it to its state before compilation.
 
 ## License
 

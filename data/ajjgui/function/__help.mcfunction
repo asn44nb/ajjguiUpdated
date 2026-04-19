@@ -10,7 +10,6 @@ tellraw @s {text:"/function ajjgui:__portself {id:<gui_id>}",color:"green",click
 tellraw @s {text:"/function ajjgui:__reload",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:__reload"},hover_event:{action:"show_text",value:"Click Here"}}
 tellraw @s {text:"/function ajjgui:__uninstall",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:__uninstall"},hover_event:{action:"show_text",value:"Click Here"}}
 tellraw @s {text:"/function ajjgui:__version",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:__version"},hover_event:{action:"show_text",value:"Click Here"}}
-tellraw @s {text:"/function ajjgui:__widget/",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:__widget/"},hover_event:{action:"show_text",value:"Click Here"}}
 tellraw @s {text:"/function ajjgui:_open {player:<player_uuid>,id:<gui_id>}",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:_open"},hover_event:{action:"show_text",value:"Click Here"}}
 tellraw @s {text:"/function ajjgui:_open_cart {player:<player_uuid>,id:<gui_id>}",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:_open_cart"},hover_event:{action:"show_text",value:"Click Here"}}
 tellraw @s {text:"/function ajjgui:_openself {id:<gui_id>}",color:"green",click_event:{action:"suggest_command",command:"/function ajjgui:_openself"},hover_event:{action:"show_text",value:"Click Here"}}
