@@ -1,0 +1,11 @@
+$execute unless data storage ajjgui:data database[{player:$(player),id:$(id)}] run return run function ajjgui:gui/ported/fail_silent
+execute at @e[type=minecraft:chest_minecart,tag=ajjgui.gui_cart] positioned ~-0.75 ~-0.5 ~-0.75 if entity @s[dx=0.5,dy=0,dz=0.5] run return run function ajjgui:gui/ported/fail_silent
+
+data modify storage ajjgui:data temp.args.rotation set from entity @s Rotation
+execute at @s align xyz positioned ~0.5 ~0.5 ~0.5 run function ajjgui:gui/ported/create_minecart with storage ajjgui:data temp.args
+
+ride @s dismount
+ride @s mount @e[type=minecraft:chest_minecart,tag=ajjgui.gui_cart,tag=ajjgui.selected,limit=1]
+tag @e[type=minecraft:chest_minecart,tag=ajjgui.selected] remove ajjgui.selected
+
+execute on vehicle on passengers if entity @e[type=minecraft:marker,tag=ajjgui.gui_ported] run function ajjgui:gui/ported/init_marker

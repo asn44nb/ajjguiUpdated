@@ -1,9 +1,8 @@
-execute at @e[type=minecraft:marker,tag=ajjgui.gui_origin] positioned ~ ~ ~ run function ajjgui:__decompile
-
 execute at @e[type=minecraft:marker,tag=ajjgui.box] run setblock ~ ~ ~ minecraft:air
 execute at @e[type=minecraft:marker,tag=ajjgui.gui_origin] run data remove block ~ ~ ~ Items
 
 execute as @a on vehicle if entity @s[type=minecraft:oak_chest_boat,tag=ajjgui.gui_boat] run function ajjgui:gui/ported/close
+execute as @a on vehicle if entity @s[type=minecraft:chest_minecart,tag=ajjgui.gui_cart] run function ajjgui:gui/ported/close
 
 kill @e[type=minecraft:marker,tag=ajjgui.box]
 kill @e[type=minecraft:marker,tag=ajjgui.gui_origin]

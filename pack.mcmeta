@@ -1,5 +1,7 @@
 {
   "pack": {
-    "description": "A data-driven GUI library for mapmaking"
+    "description": "A data-driven GUI library for mapmaking",
+    "min_format": 71,
+    "max_format": 101
   }
 }
