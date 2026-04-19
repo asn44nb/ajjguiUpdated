@@ -1,5 +1,10 @@
 {
   "pack": {
+    "pack_format": 71,
+    "supported_formats": {
+      "min_inclusive": 71,
+      "max_inclusive": 71
+    },
     "description": "A data-driven GUI library for mapmaking"
   }
 }
